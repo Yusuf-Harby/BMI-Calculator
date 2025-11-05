@@ -1,3 +1,4 @@
+import 'package:bmi/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
@@ -12,8 +13,11 @@ class BMI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'Home Screen',
-      routes: {'Home Screen': (context) => HomeScreen()},
+      initialRoute: 'Result Screen',
+      routes: {
+        'Home Screen': (context) => HomeScreen(),
+        'Result Screen': (context) => ResultScreen(),
+      },
     );
   }
 }
