@@ -1,3 +1,6 @@
+import 'package:bmi/custom_counter_widget.dart';
+import 'package:bmi/custom_gender_widget.dart';
+import 'package:bmi/custom_material_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'custom_appbar_widget.dart';
@@ -19,57 +22,17 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 spacing: 10,
                 children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColor.selected,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/icons/male_icon.png',
-                            width: 144,
-                            height: 144,
-                          ),
-                          Text(
-                            'Male',
-                            style: TextStyle(
-                              color: AppColor.gray,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  CustomGenderWidget(
+                    onTap: () {},
+                    icon: 'assets/icons/male_icon.png',
+                    text: 'Male',
+                    color: AppColor.selected,
                   ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColor.unselected,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/icons/female_icon.png',
-                            width: 144,
-                            height: 144,
-                          ),
-                          Text(
-                            'Female',
-                            style: TextStyle(
-                              color: AppColor.gray,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  CustomGenderWidget(
+                    onTap: () {},
+                    icon: 'assets/icons/female_icon.png',
+                    text: 'Female',
+                    color: AppColor.unselected,
                   ),
                 ],
               ),
@@ -128,129 +91,17 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 spacing: 10,
                 children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColor.unselected,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 15),
-                          Text(
-                            'Weight',
-                            style: TextStyle(
-                              color: AppColor.gray,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            '60',
-                            style: TextStyle(
-                              color: AppColor.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 21),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              FloatingActionButton(
-                                onPressed: () {},
-                                backgroundColor: AppColor.gray,
-                                shape: CircleBorder(),
-                                child: Text(
-                                  '-',
-                                  style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                              FloatingActionButton(
-                                onPressed: () {},
-                                backgroundColor: AppColor.gray,
-                                shape: CircleBorder(),
-                                child: Text(
-                                  '+',
-                                  style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                  CustomCounterWidget(
+                    text: 'Weight',
+                    value: 60,
+                    onTapMinus: () {},
+                    onTapPlus: () {},
                   ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColor.unselected,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 15),
-                          Text(
-                            'Age',
-                            style: TextStyle(
-                              color: AppColor.gray,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            '21',
-                            style: TextStyle(
-                              color: AppColor.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 21),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              FloatingActionButton(
-                                onPressed: () {},
-                                backgroundColor: AppColor.gray,
-                                shape: CircleBorder(),
-                                child: Text(
-                                  '-',
-                                  style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                              FloatingActionButton(
-                                onPressed: () {},
-                                backgroundColor: AppColor.gray,
-                                shape: CircleBorder(),
-                                child: Text(
-                                  '+',
-                                  style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                  CustomCounterWidget(
+                    text: 'Age',
+                    value: 21,
+                    onTapMinus: () {},
+                    onTapPlus: () {},
                   ),
                 ],
               ),
@@ -258,19 +109,9 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: MaterialButton(
-        onPressed: () {},
-        color: AppColor.secondary,
-        minWidth: double.infinity,
-        height: 100,
-        child: Text(
-          'Calculate',
-          style: TextStyle(
-            color: AppColor.white,
-            fontSize: 32,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+      bottomNavigationBar: CustomMaterialButtonWidget(
+        text: 'Calculate',
+        onTap: () {},
       ),
     );
   }
