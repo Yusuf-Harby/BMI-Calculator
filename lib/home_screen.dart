@@ -5,8 +5,18 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'custom_appbar_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int weight = 60;
+  int height = 177;
+  int age = 21;
+  bool isMale = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +33,22 @@ class HomeScreen extends StatelessWidget {
                 spacing: 10,
                 children: [
                   CustomGenderWidget(
-                    onTap: () {},
+                    onTap: () {
+                      isMale = true;
+                      setState((){});
+                    },
                     icon: 'assets/icons/male_icon.png',
                     text: 'Male',
-                    color: AppColor.selected,
+                    color: isMale? AppColor.selected : AppColor.unselected,
                   ),
                   CustomGenderWidget(
-                    onTap: () {},
+                    onTap: () {
+                      isMale = false;
+                      setState((){});
+                    },
                     icon: 'assets/icons/female_icon.png',
                     text: 'Female',
-                    color: AppColor.unselected,
+                    color: isMale? AppColor.unselected : AppColor.selected,
                   ),
                 ],
               ),
@@ -57,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(height: 6),
                     Text.rich(
                       TextSpan(
-                        text: '177',
+                        text: height.toString(),
                         style: TextStyle(
                           color: AppColor.white,
                           fontSize: 40,
@@ -65,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: 'cm',
+                            text: ' cm',
                             style: TextStyle(
                               color: AppColor.white,
                               fontSize: 15,
@@ -76,8 +92,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Slider(
-                      value: 60,
-                      onChanged: (val) {},
+                      value: height.toDouble(),
+                      onChanged: (val) {
+                        height = val.toInt();
+                        setState((){});
+                      },
                       min: 20,
                       max: 200,
                       activeColor: AppColor.secondary,
@@ -93,15 +112,35 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   CustomCounterWidget(
                     text: 'Weight',
-                    value: 60,
-                    onTapMinus: () {},
-                    onTapPlus: () {},
+                    value: weight,
+                    onTapMinus: () {
+                      if (weight > 1) {
+                        weight--;
+                        setState((){});
+                      }
+                    },
+                    onTapPlus: () {
+                      if (weight < 250) {
+                        weight++;
+                        setState((){});
+                      }
+                    },
                   ),
                   CustomCounterWidget(
                     text: 'Age',
-                    value: 21,
-                    onTapMinus: () {},
-                    onTapPlus: () {},
+                    value: age,
+                    onTapMinus: () {
+                      if (age > 0) {
+                        age--;
+                        setState((){});
+                      }
+                    },
+                    onTapPlus: () {
+                      if (age < 150) {
+                        age++;
+                        setState((){});
+                      }
+                    },
                   ),
                 ],
               ),
