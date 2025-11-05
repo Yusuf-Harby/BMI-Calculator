@@ -18,7 +18,7 @@ class CustomMaterialButtonWidget extends StatelessWidget {
       minWidth: double.infinity,
       height: 100,
       child: Text(
-        'Calculate',
+        text,
         style: TextStyle(
           color: AppColor.white,
           fontSize: 32,
