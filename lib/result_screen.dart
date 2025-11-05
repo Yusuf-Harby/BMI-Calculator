@@ -72,7 +72,9 @@ class ResultScreen extends StatelessWidget {
       ),
       bottomNavigationBar: CustomMaterialButtonWidget(
         text: 'Re - Calculate',
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pop();
+        },
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:bmi/custom_counter_widget.dart';
 import 'package:bmi/custom_gender_widget.dart';
 import 'package:bmi/custom_material_button_widget.dart';
+import 'package:bmi/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'custom_appbar_widget.dart';
@@ -35,20 +36,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   CustomGenderWidget(
                     onTap: () {
                       isMale = true;
-                      setState((){});
+                      setState(() {});
                     },
                     icon: 'assets/icons/male_icon.png',
                     text: 'Male',
-                    color: isMale? AppColor.selected : AppColor.unselected,
+                    color: isMale ? AppColor.selected : AppColor.unselected,
                   ),
                   CustomGenderWidget(
                     onTap: () {
                       isMale = false;
-                      setState((){});
+                      setState(() {});
                     },
                     icon: 'assets/icons/female_icon.png',
                     text: 'Female',
-                    color: isMale? AppColor.unselected : AppColor.selected,
+                    color: isMale ? AppColor.unselected : AppColor.selected,
                   ),
                 ],
               ),
@@ -95,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       value: height.toDouble(),
                       onChanged: (val) {
                         height = val.toInt();
-                        setState((){});
+                        setState(() {});
                       },
                       min: 20,
                       max: 200,
@@ -116,13 +117,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTapMinus: () {
                       if (weight > 1) {
                         weight--;
-                        setState((){});
+                        setState(() {});
                       }
                     },
                     onTapPlus: () {
                       if (weight < 250) {
                         weight++;
-                        setState((){});
+                        setState(() {});
                       }
                     },
                   ),
@@ -132,13 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTapMinus: () {
                       if (age > 0) {
                         age--;
-                        setState((){});
+                        setState(() {});
                       }
                     },
                     onTapPlus: () {
                       if (age < 150) {
                         age++;
-                        setState((){});
+                        setState(() {});
                       }
                     },
                   ),
@@ -150,8 +151,31 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: CustomMaterialButtonWidget(
         text: 'Calculate',
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            'Result Screen',
+            arguments: UserData(
+              height: height,
+              weight: weight,
+              age: age,
+              isMale: isMale,
+            ),
+          );
+        },
       ),
     );
   }
+}
+
+class UserData {
+  UserData({
+    required this.height,
+    required this.weight,
+    required this.age,
+    required this.isMale,
+  });
+  int weight;
+  int height;
+  int age;
+  bool isMale;
 }

@@ -13,7 +13,7 @@ class BMI extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'Result Screen',
+      initialRoute: 'Home Screen',
       routes: {
         'Home Screen': (context) => HomeScreen(),
         'Result Screen': (context) => ResultScreen(),
