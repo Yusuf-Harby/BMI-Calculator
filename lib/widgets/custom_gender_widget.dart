@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
+
+import '../core/constants/app_colors.dart';
 
 class CustomGenderWidget extends StatelessWidget {
   const CustomGenderWidget({

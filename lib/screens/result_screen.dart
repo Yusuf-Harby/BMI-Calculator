@@ -1,13 +1,18 @@
-import 'package:bmi/app_colors.dart';
-import 'package:bmi/custom_appbar_widget.dart';
-import 'package:bmi/custom_material_button_widget.dart';
+import 'package:bmi/core/constants/app_colors.dart';
+import 'package:bmi/widgets/custom_appbar_widget.dart';
+import 'package:bmi/core/utils/bmi_calculator.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/custom_material_button_widget.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as BmiCalculator;
+
+
     return Scaffold(
       appBar: CustomAppBar(),
       backgroundColor: AppColor.primary,
@@ -34,27 +39,27 @@ class ResultScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 58,),
+                    SizedBox(height: 58),
                     Text(
-                      'Normal',
+                      args.getState(),
                       style: TextStyle(
-                        color: Colors.green,
+                        color: args.getColor(),
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 33,),
+                    SizedBox(height: 33),
                     Text(
-                      '19.2',
+                      args.calculateBmi().toStringAsFixed(2),
                       style: TextStyle(
                         color: AppColor.white,
                         fontSize: 64,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 60,),
+                    SizedBox(height: 60),
                     Text(
-                      'You Have a Normal Body Weight, Good Job. hfjdskjfksdjfkljsdfi jsidjfaisoj idf jij ija fijsifj ijsdfijk jfaio',
+                      args.getDesc(),
                       style: TextStyle(
                         color: AppColor.gray,
                         fontSize: 16,
@@ -66,7 +71,7 @@ class ResultScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 1,)
+            SizedBox(height: 1),
           ],
         ),
       ),

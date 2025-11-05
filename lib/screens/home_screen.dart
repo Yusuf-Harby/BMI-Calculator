@@ -1,10 +1,12 @@
-import 'package:bmi/custom_counter_widget.dart';
-import 'package:bmi/custom_gender_widget.dart';
-import 'package:bmi/custom_material_button_widget.dart';
-import 'package:bmi/result_screen.dart';
+
+import 'package:bmi/core/utils/bmi_calculator.dart';
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
-import 'custom_appbar_widget.dart';
+
+import '../core/constants/app_colors.dart';
+import '../widgets/custom_appbar_widget.dart';
+import '../widgets/custom_counter_widget.dart';
+import '../widgets/custom_gender_widget.dart';
+import '../widgets/custom_material_button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -154,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: () {
           Navigator.of(context).pushNamed(
             'Result Screen',
-            arguments: UserData(
+            arguments: BmiCalculator(
               height: height,
               weight: weight,
               age: age,
@@ -165,17 +167,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-class UserData {
-  UserData({
-    required this.height,
-    required this.weight,
-    required this.age,
-    required this.isMale,
-  });
-  int weight;
-  int height;
-  int age;
-  bool isMale;
 }
