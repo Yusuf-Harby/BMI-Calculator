@@ -1,6 +1,6 @@
-
 import 'package:bmi/core/utils/bmi_calculator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/constants/app_colors.dart';
 import '../widgets/custom_appbar_widget.dart';
@@ -10,7 +10,7 @@ import '../widgets/custom_material_button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
+  static const String pageRoute = 'Home Screen';
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -27,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColor.primary,
       appBar: CustomAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24.r),
         child: Column(
-          spacing: 25,
+          spacing: 25.h,
           children: [
             Expanded(
               child: Row(
-                spacing: 10,
+                spacing: 10.w,
                 children: [
                   CustomGenderWidget(
                     onTap: () {
@@ -64,22 +64,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 27),
+                    SizedBox(height: 27.h),
                     Text(
                       'Height',
                       style: TextStyle(
                         color: AppColor.gray,
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: 6),
+                    SizedBox(height: 6.h),
                     Text.rich(
                       TextSpan(
                         text: height.toString(),
                         style: TextStyle(
                           color: AppColor.white,
-                          fontSize: 40,
+                          fontSize: 40.sp,
                           fontWeight: FontWeight.bold,
                         ),
                         children: [
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             text: ' cm',
                             style: TextStyle(
                               color: AppColor.white,
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: Row(
-                spacing: 10,
+                spacing: 10.w,
                 children: [
                   CustomCounterWidget(
                     text: 'Weight',

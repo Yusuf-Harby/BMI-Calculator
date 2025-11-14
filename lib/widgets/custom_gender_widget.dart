@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/constants/app_colors.dart';
 
@@ -22,17 +23,17 @@ class CustomGenderWidget extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(icon, width: 144, height: 144),
+              Image.asset(icon, width: 144.w, height: 144.h),
               Text(
                 text,
                 style: TextStyle(
                   color: AppColor.gray,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/constants/app_colors.dart';
-
 
 class CustomMaterialButtonWidget extends StatelessWidget {
   const CustomMaterialButtonWidget({
@@ -17,12 +17,12 @@ class CustomMaterialButtonWidget extends StatelessWidget {
       onPressed: onTap,
       color: AppColor.secondary,
       minWidth: double.infinity,
-      height: 100,
+      height: 100.h,
       child: Text(
         text,
         style: TextStyle(
           color: AppColor.white,
-          fontSize: 32,
+          fontSize: 32.sp,
           fontWeight: FontWeight.w600,
         ),
       ),
